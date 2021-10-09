@@ -5,6 +5,9 @@
   <body>
     <div class="container">
         <a href="{{url('/add-data')}}" class="btn btn-primary my-4">Add data</a>
+            @if(Session::has('mesg'))
+       <p class="alert alert-success">{{Session::get('mesg')}}</p>
+       @endif
         <table class="table table-bordered table-hover">
   <thead>
     <tr>
@@ -12,22 +15,23 @@
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
+    @foreach ($showData as $key=>$data )
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      {{-- <th scope="row">{{$key+1}}</th> --}}
+      <td>{{$data->id}}</td>
+      <td>{{$data->name}}</td>
+      <td>{{$data->email}}</td>
+      <td>{{$data->phone}}</td>
+      <td>
+        <a href="{{url('/edit-data/'.$data->id)}}" class="btn btn-success">Edit</a>
+        <a href="{{url('/delete-data/'.$data->id)}}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a>
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-   
+    @endforeach
   </tbody>
 </table>
     </div>
