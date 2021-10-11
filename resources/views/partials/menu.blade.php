@@ -30,12 +30,22 @@
 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
 </svg> Admin</a>
 <ul class="nav-group-items">
-<li class="nav-item"><a class="nav-link" href="base/accordion.html"><span class="nav-icon"></span> Accordion</a></li>
-<li class="nav-item"><a class="nav-link" href="base/tooltips.html"><span class="nav-icon"></span> Tooltips</a></li>
+<li class="nav-item"><a class="nav-link" href="/show-admin"><span class="nav-icon"></span> all admin</a></li>
+{{-- <li class="nav-item"><a class="nav-link" href="base/tooltips.html"><span class="nav-icon"></span> Tooltips</a></li> --}}
 </ul>
 </li>
 
+<li class="nav-title">Attendance</li>
 
+<li class="nav-item"><a class="nav-link" href="/get-attendance">
+<svg class="nav-icon">
+<use xlink:href=""></use>
+</svg>Student Attendance</a></li>
+
+<li class="nav-item"><a class="nav-link" href="/report">
+<svg class="nav-icon">
+<use xlink:href=""></use>
+</svg>Attendance Report</a></li>
 
 <li class="nav-title">Action</li>
 
@@ -43,6 +53,11 @@
 <svg class="nav-icon">
 <use xlink:href=""></use>
 </svg> Add student</a></li>
+
+<li class="nav-item"><a class="nav-link" href="/home">
+<svg class="nav-icon">
+<use xlink:href=""></use>
+</svg>All student</a></li>
 
 {{-- <li class="nav-title">Admin</li> --}}
 

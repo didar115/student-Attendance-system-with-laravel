@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container w-50 mt-4">
         
         <a href="{{url('/home')}}" class="btn btn-primary my-4">show data</a>
 
