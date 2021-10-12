@@ -23,7 +23,7 @@ Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/table', [CrudController::class, 'showData']);
-Route::get('/dashboard', [CrudController::class, 'dashboard']);
+Route::get('/home', [CrudController::class, 'dashboard']);
 Route::get('/report', [CrudController::class, 'showReport']);
 Route::get('/show-admin', [CrudController::class, 'showAdmin']);
 Route::get('/get-attendance', [CrudController::class, 'getAttendance']);

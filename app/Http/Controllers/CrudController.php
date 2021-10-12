@@ -11,6 +11,10 @@ use App\Http\Controllers\find;
 
 class CrudController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     // all student list  view: /table 
     public function showData()
@@ -140,7 +144,7 @@ class CrudController extends Controller
         $crud-> phone = $req->phone;
         $crud-> save();
         session::flash('mesg', 'Data successfully Updated');
-        return redirect('/home');
+        return redirect('/table');
     }
 
 
@@ -164,7 +168,7 @@ class CrudController extends Controller
     // system dashboard  view: /dashboard
     public function dashboard(){
 
-        return view('show_dashboard');
+        return view('home');
 
     }
 

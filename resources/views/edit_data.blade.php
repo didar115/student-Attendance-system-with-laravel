@@ -15,6 +15,7 @@
                       <span class="text-danger"> {{$message}}</span>
                       @enderror
                   </div>
+
                   <div class="form-group">
                       <label for="">Email</label>
                       <input type="text" class="form-control" name="email" value={{$editData->email}} placeholder="Enter email">
@@ -22,6 +23,7 @@
                       <span class="text-danger"> {{$message}}</span>
                       @enderror
                   </div>
+                  
                   <div class="form-group">
                       <label for="">Phone</label>
                       <input type="number" class="form-control" name="phone" value={{$editData->phone}} placeholder="Enter phone">
