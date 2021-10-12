@@ -11,25 +11,38 @@ use App\Http\Controllers\find;
 
 class CrudController extends Controller
 {
-    public function showData(){
-        $showData=crud::all();
 
+    // all student list  view: /table 
+    public function showData()
+    {
+        $showData=crud::all();
         return view('show_data',compact('showData'));
 
     }
-    public function showAdmin(){
+
+
+    // Admin list  view: /admin 
+    public function showAdmin()
+    {
         $showAdmin=user::all();
 
         return view('show_admin',compact('showAdmin'));
 
     }
-    public function getAttendance(){
+
+
+    // student attendance  view: /get-attendance 
+    public function getAttendance()
+    {
         $attendance=crud::all();
 
         return view('get_attendance',compact('attendance'));
 
     }
-    public function submitAttendance(Request $req){
+
+    //Get attendance  view:  post: /submit-attendance
+    public function submitAttendance(Request $req)
+    {
         // $data = $req->post();
         // print_r($data);die;
 
@@ -54,14 +67,16 @@ class CrudController extends Controller
 
     }
 
-
-
-    public function addData(){
+    //Add new student  view: /add-data
+    public function addData()
+    {
         return view('add_data');
     }
 
+
+    //store new student data  view: post: /store-data
      public function storeData(Request $req)
-    {
+     {
         $rules =[
             'name'=>'required| max:15',
             'email'=> 'required|email',
@@ -83,13 +98,15 @@ class CrudController extends Controller
         $crud-> email = $req->email;
         $crud-> phone = $req->phone;
         $crud-> save();
-       session::flash('mesg', 'Data successfully Added');
-    return redirect('/table');
+
+        session::flash('mesg', 'Data successfully Added');
+        return redirect('/table');
     }
 
 
-
-    public function editData($id=null){
+    // edit student existing data  view: /edit-data/{id}
+    public function editData($id=null)
+    {
         // $editData=crud::find($id);
          $editData = DB::table('cruds')->find($id);
         return view('edit_data',compact('editData'));
@@ -98,7 +115,7 @@ class CrudController extends Controller
 
 
 
-
+    //After edit student data then update latest data.  view: post: /update-data/{id}
     public function updateData(Request $req,$id)
     {
         $rules =[
@@ -122,22 +139,29 @@ class CrudController extends Controller
         $crud-> email = $req->email;
         $crud-> phone = $req->phone;
         $crud-> save();
-       session::flash('mesg', 'Data successfully Updated');
-    return redirect('/home');
+        session::flash('mesg', 'Data successfully Updated');
+        return redirect('/home');
     }
 
-    public function deleteData($id=null){
+
+    // delete student data  view: /delete-data/{id}
+    public function deleteData($id=null)
+    {
         $deleteData=crud::find($id);
         $deleteData-> delete();
         session::flash('mesg', 'Data successfully Deleted');
         return redirect('/home');
     }
 
-    public function showReport(){
+    // Student report generator  view: /report
+    public function showReport()
+    {
 
         return view('show_report');
 
     }
+
+    // system dashboard  view: /dashboard
     public function dashboard(){
 
         return view('show_dashboard');
@@ -145,9 +169,9 @@ class CrudController extends Controller
     }
 
 
-
-
-    public function search(Request $req){
+    // search by date for genarating student report  view: /attendance-report
+    public function search(Request $req)
+    {
         $fromDate=$req->input('from');
         $toDate=$req->input('to');
 

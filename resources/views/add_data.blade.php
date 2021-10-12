@@ -11,29 +11,31 @@
         <a href="{{url('/table')}}" class="btn btn-primary my-4">show student</a>
 
         <form action="{{url('/store-data')}}" method="POST" class="w-75">
-          @csrf
-            <div class="form-group">
-                <label for="">Name</label>
-                <input type="text" class="form-control" name="name" placeholder="Enter name">
-                @error('name')
-                <span class="text-danger"> {{$message}}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="">Email</label>
-                <input type="text" class="form-control" name="email" placeholder="Enter email">
-                  @error('email')
-                <span class="text-danger"> {{$message}}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="">Phone</label>
-                <input type="number" class="form-control" name="phone" placeholder="Enter phone">
-                  @error('phone')
-                <span class="text-danger"> {{$message}}</span>
-                @enderror
-            </div>  
-            <input type="submit" class="btn btn-primary my-3" value="submit">
+                @csrf
+                  <div class="form-group">
+                      <label for="">Name</label>
+                      <input type="text" class="form-control" name="name" placeholder="Enter name">
+                      @error('name')
+                      <span class="text-danger"> {{$message}}</span>
+                      @enderror
+                  </div>
+
+                  <div class="form-group">
+                      <label for="">Email</label>
+                      <input type="text" class="form-control" name="email" placeholder="Enter email">
+                        @error('email')
+                      <span class="text-danger"> {{$message}}</span>
+                      @enderror
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="">Phone</label>
+                      <input type="number" class="form-control" name="phone" placeholder="Enter phone">
+                        @error('phone')
+                      <span class="text-danger"> {{$message}}</span>
+                      @enderror
+                  </div>  
+                  <input type="submit" class="btn btn-primary my-3" value="submit">
         </form>
       </div>
         
