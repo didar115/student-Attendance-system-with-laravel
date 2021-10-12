@@ -3,7 +3,7 @@
 @section('content')
   </head>
   <body>
-    <div class="bg-success text-center py-2">
+    <div class="bg-success text-center py-1 ">
       <h2>All Student</h2>
     </div>
 

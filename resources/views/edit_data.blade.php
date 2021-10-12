@@ -4,7 +4,7 @@
 @section('content')
     <div class="container w-50 mt-4">
         
-        <a href="{{url('/home')}}" class="btn btn-primary my-4">show data</a>
+        <a href="{{url('/table')}}" class="btn btn-primary my-4">show data</a>
 
         <form action="{{url('/update-data/'.$editData->id)}}" method="POST" class="w-75">
           @csrf

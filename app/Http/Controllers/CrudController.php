@@ -30,47 +30,31 @@ class CrudController extends Controller
 
     }
     public function submitAttendance(Request $req){
-        $data = $req->post();
-        print_r($data);die;
-        // $inputValue=$req->all();
-        // $arrayToString= implode(',', $req->input('attendance'));
-        // $inputValue= attendance::create($inputValue);
-        // $attendance = new attendance();
-
+        // $data = $req->post();
+        // print_r($data);die;
 
         $roll_number = $req->roll_number;
         $name = $req->name;
         $action = $req->action;
         $date=$req-> date;
-        // print_r($data);die;
 
             for($i=0;$i<count($roll_number);$i++){
                 $datasave=[
                     'roll_number' =>$roll_number[$i],
                     'name' => $name[$i],
-                    // if( 'action'=>$action[$i]!=1){
-                    //     'action'=>$action[$i]=0;
-                    // }else{
-                    // }
-
                     'action' => $action[$i],
                     'date'=>$date,
                 ];
-        DB::table('attendance')->insert($datasave);
+                DB::table('attendance')->insert($datasave);
             }
-            session::flash('mesg', 'Attendance added successfully');
-        return redirect('/home');
+
+        session::flash('mesg', 'Attendance added successfully');
+        return redirect('/table');
             
 
     }
 
 
-
-    public function showReport(){
-
-        return view('show_report');
-
-    }
 
     public function addData(){
         return view('add_data');
@@ -100,7 +84,7 @@ class CrudController extends Controller
         $crud-> phone = $req->phone;
         $crud-> save();
        session::flash('mesg', 'Data successfully Added');
-    return redirect('/home');
+    return redirect('/table');
     }
 
 
@@ -149,20 +133,37 @@ class CrudController extends Controller
         return redirect('/home');
     }
 
+    public function showReport(){
+
+        return view('show_report');
+
+    }
+    public function dashboard(){
+
+        return view('show_dashboard');
+
+    }
 
 
 
 
     public function search(Request $req){
-        $formDate=$req->input('from');
+        $fromDate=$req->input('from');
         $toDate=$req->input('to');
 
-        $query=DB::table('attendance')->select()
-        ->where('date','>=',$formDate)
-        ->where('date','>=',$toDate)
+        $report=DB::table('attendance')->select()
+        ->where('date','>=',$fromDate)
+        ->where('date','<=',$toDate)
         ->get();
-        return view('show_report',compact('query'));
-        // return ($query);
+        session::flash('mesg', 'Report Generated');
+
+        // $data = $req->post();
+        // print_r($data);die;
+
+        return view('show_report',compact('report','fromDate','toDate'));
+
+        // return view('show_report')-> with(['report' => $report]);
+        // return ($report);
     }
    
 }

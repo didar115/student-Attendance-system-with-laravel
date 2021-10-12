@@ -8,7 +8,7 @@
     </div>
 
     <div class="container w-50 mt-4">
-        <a href="{{url('/home')}}" class="btn btn-primary my-4">show student</a>
+        <a href="{{url('/table')}}" class="btn btn-primary my-4">show student</a>
 
         <form action="{{url('/store-data')}}" method="POST" class="w-75">
           @csrf
