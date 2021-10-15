@@ -28,7 +28,7 @@
                           @foreach ($showData as $key=>$data )
                           <tr>
                             {{-- <th scope="row">{{$key+1}}</th> --}}
-                            <td>{{$data->id}}</td>
+                            <td>{{$key+1}}</td>
                             <td>{{$data->name}}</td>
                             <td>{{$data->email}}</td>
                             <td>{{$data->phone}}</td>

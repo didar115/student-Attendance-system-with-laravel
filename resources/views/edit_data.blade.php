@@ -10,7 +10,7 @@
                 @csrf
                   <div class="form-group">
                       <label for="">Name</label>
-                      <input type="text" class="form-control" name="name" value={{$editData->name}} placeholder="Enter name">
+                      <input type="text" class="form-control" name="name" value="{{ $editData->name}}" placeholder="Enter name">
                       @error('name')
                       <span class="text-danger"> {{$message}}</span>
                       @enderror

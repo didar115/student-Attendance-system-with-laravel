@@ -109,10 +109,12 @@ class CrudController extends Controller
 
 
     // edit student existing data  view: /edit-data/{id}
-    public function editData($id=null)
+    public function editData($id)
     {
+   
         // $editData=crud::find($id);
          $editData = DB::table('cruds')->find($id);
+         
         return view('edit_data',compact('editData'));
         // return view('edit_data',['users'=>$editData]);
     }
@@ -167,8 +169,16 @@ class CrudController extends Controller
 
     // system dashboard  view: /dashboard
     public function dashboard(){
+        $count_student = DB::table('cruds')->count();
+        $count_admin = DB::table('users')->count();
 
-        return view('home');
+//         if($count > 0) {
+            
+//         }else {
+     
+// }
+
+        return view('home',compact('count_student','count_admin'));
 
     }
 
