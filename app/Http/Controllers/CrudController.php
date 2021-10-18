@@ -19,7 +19,8 @@ class CrudController extends Controller
     // all student list  view: /table 
     public function showData()
     {
-        $showData=crud::all();
+        $showData=crud:: orderBy('id', 'desc')-> get();
+        
         return view('show_data',compact('showData'));
 
     }
@@ -29,6 +30,7 @@ class CrudController extends Controller
     public function showAdmin()
     {
         $showAdmin=user::all();
+        
 
         return view('show_admin',compact('showAdmin'));
 
@@ -81,6 +83,7 @@ class CrudController extends Controller
     //store new student data  view: post: /store-data
      public function storeData(Request $req)
      {
+       
         $rules =[
             'name'=>'required| max:15',
             'email'=> 'required|email',
@@ -111,6 +114,7 @@ class CrudController extends Controller
     // edit student existing data  view: /edit-data/{id}
     public function editData($id)
     {
+        
    
         // $editData=crud::find($id);
          $editData = DB::table('cruds')->find($id);

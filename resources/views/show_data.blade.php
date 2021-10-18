@@ -7,7 +7,7 @@
           <h2>All Student</h2>
         </div>
 
-        <div class="container w-50">
+        <div class="container w-75 me-5">
               <a href="{{url('/add-data')}}" class="btn btn-primary my-4">Add student</a>
               @if(Session::has('mesg'))
               <p class="alert alert-success">{{Session::get('mesg')}}</p>
@@ -20,6 +20,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Action</th>
+                        <th scope="col">Status</th>
                       </tr>
                     </thead>
 
@@ -36,6 +37,7 @@
                               <a href="{{url('/edit-data/'.$data->id)}}" class="btn btn-success">Edit</a>
                               <a href="{{url('/delete-data/'.$data->id)}}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a>
                             </td>
+                            <td> <button class="btn btn-success">Active</button> </td>
                           </tr>
                           @endforeach
                     </tbody>

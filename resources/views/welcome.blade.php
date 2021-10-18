@@ -36,9 +36,17 @@
                 </div>
             @endif
 
-            <div class="text-danger">
+            {{-- <div class="text-danger">
                 <h1>Student Attendance Management System</h1>
                
+            </div> --}}
+            <div class="container">
+                <div class="shadow-lg" >
+                    <h1>hi</h1>
+
+                </div>
+                
+                
             </div>
 
         </div>

@@ -24,7 +24,7 @@
         </div>
             
 
-        <div class="container w-50 mt-3">
+        <div class="container w-75 mt-3 me-5">
                 @if(Session::has('mesg'))
                     @if (isset($fromDate,$toDate))
                     <p class="alert alert-success">{{Session::get('mesg')}} <span class="mx-3"> <span class="mx-3"> {{$fromDate}}</span> to <span class="mx-3"> {{$toDate}} </span></span></p>

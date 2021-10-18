@@ -23,7 +23,7 @@
 
 
 
-            <div class="container w-50 mt-3">
+            <div class="container w-75 mt-3 me-5">
                   @if(Session::has('mesg'))
                   <p class="alert alert-success">{{Session::get('mesg')}}</p>
                   @endif
