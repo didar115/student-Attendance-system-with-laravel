@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+  <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
   </head>
+
   <body>
           <div class="bg-success text-center py-2">
               <h2>Admin</h2>
@@ -11,7 +15,7 @@
                          @if(Session::has('mesg'))
                         <p class="alert alert-success">{{Session::get('mesg')}}</p>
                         @endif
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered table-hover" id="myTable">
                     <thead>
                       <tr>
                           <th scope="col">Id</th>
@@ -38,6 +42,13 @@
                     </tbody>
              </table>
           </div>
+          <script>
+            $(document).ready( function () {
+              $('#myTable').DataTable();
+          } );
+          </script>
+          
+          <script type="text/javascript" src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
