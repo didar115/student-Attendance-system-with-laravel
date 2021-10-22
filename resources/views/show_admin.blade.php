@@ -11,7 +11,7 @@
               <h2>Admin</h2>
           </div>
           <div class="container w-75 me-5">
-                        <a href="{{url('/show-admin')}}" class="btn btn-primary my-4 rounded-3">Add data</a>
+                        <a href="{{url('/show-admin')}}" class="btn btn-primary my-4 rounded-3">Add a new role </a>
                          @if(Session::has('mesg'))
                         <p class="alert alert-success">{{Session::get('mesg')}}</p>
                         @endif
